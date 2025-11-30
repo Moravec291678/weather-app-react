@@ -7,7 +7,7 @@ const App = () => {
   const apiKey = "a2d5548c2313ba1d6c8aa73339a68dc3";
 
   const searchWeather = async () => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${apiKey}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue.trim()}&appid=${apiKey}&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
     if (data.cod === "404") {
@@ -75,7 +75,7 @@ const App = () => {
 
           {weatherData.main && (
             <div className="weather-info-bottom">
-              <p className="weather-wind">Vitr: {weatherData.wind.speed}km/h</p>
+              <p className="weather-wind">Vitr: {weatherData.wind.speed} km/h</p>
               <p className="weather-humidity">
                 Vlhkost: {weatherData.main.humidity}%
               </p>
