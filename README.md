@@ -1,16 +1,79 @@
-# React + Vite
+# Weather App (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Weather App is a simple web application that allows users to search for current weather information by city name.  
+The application fetches real-time data from a public weather API and displays essential weather details in a clean and user-friendly interface.
 
-Currently, two official plugins are available:
+This project was created as a learning and portfolio project to demonstrate practical React and API integration skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### DONE
 
-## Expanding the ESLint configuration
+- Search weather by city name
+- Fetch real-time data from OpenWeather API
+- Display current temperature in Celsius
+- Show weather description and icon
+- Display wind speed and humidity
+- Input validation (empty input, city not found)
+- Search using Enter key or button click
+- Responsive layout
+- Environment variable usage for API key
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### TODO / Possible Extensions
+
+- 5-day weather forecast
+- Loading and error states
+- Geolocation support
+- Temperature unit switch (°C / °F)
+- Improved UI animations
+- Saving searched cities
+
+---
+
+## Technologies, Frameworks and Tools
+
+- JavaScript (ES6+)
+- React
+- HTML5
+- CSS3
+- Fetch API
+- OpenWeather API
+- Vite
+- Environment variables (.env)
+
+---
+
+## What This Project Demonstrates
+
+- Working with React functional components
+- State management using `useState` and `useEffect`
+- Controlled form inputs
+- Conditional rendering
+- Handling asynchronous API requests
+- Basic error handling
+- Using environment variables in a frontend project
+- Integration with third-party REST APIs
+
+---
+
+## Screenshots
+
+![Home screen](./screenshots/home.png)
+![City weather view](./screenshots/city.png)
+
+
+Live Demo: [https://weather-app-react-api-three.vercel.app/](https://weather-app-react-api-three.vercel.app/)
+
+
+---
+
+## How to Run Locally
+
+```bash
+git clone https://github.com/your-username/weather-app-react.git
+cd weather-app-react
+npm install
+npm run dev
+```

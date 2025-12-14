@@ -11,7 +11,7 @@ const App = () => {
     const response = await fetch(url);
     const data = await response.json();
     if (data.cod === "404") {
-      alert("Mesto neexistuje!");
+      alert("Město neexistuje!");
       return;
     }
     setWeatherData(data);
