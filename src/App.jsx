@@ -4,7 +4,7 @@ const App = () => {
   const [searchValue, setSearchValue] = useState("");
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState({});
-  const apiKey = "a2d5548c2313ba1d6c8aa73339a68dc3";
+  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
   const searchWeather = async () => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue.trim()}&appid=${apiKey}&units=metric`;
@@ -39,7 +39,7 @@ const App = () => {
             <input
               className="weather-search-input"
               type="text"
-              placeholder="Vyber mesto"
+              placeholder="Vyber město"
               onChange={(event) => {
                 setSearchValue(event.target.value);
               }}
@@ -51,7 +51,7 @@ const App = () => {
               type="submit"
               value={"Vyhledat"}
               onClick={() => {
-                searchValue ? search() : alert("Mesto neni vyplneno!");
+                searchValue ? search() : alert("Město neni vyplněno!");
               }}
             />
           </div>
@@ -75,7 +75,7 @@ const App = () => {
 
           {weatherData.main && (
             <div className="weather-info-bottom">
-              <p className="weather-wind">Vitr: {weatherData.wind.speed} km/h</p>
+              <p className="weather-wind">Vítr: {weatherData.wind.speed} km/h</p>
               <p className="weather-humidity">
                 Vlhkost: {weatherData.main.humidity}%
               </p>
