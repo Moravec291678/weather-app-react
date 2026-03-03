@@ -1,124 +1,243 @@
-body {
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+body {
   padding: 0;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif   ;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
 }
 
+/* ===== PAGE ===== */
 .page {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.blur {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  padding: 10px;
-  backdrop-filter: blur(5px);
-}
-
+/* ===== APP CARD ===== */
 .weather-app {
-  background-image: url(../src/img/bg.jpg);
-  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  background-image: url("../src/img/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
 
+/* ===== GLASS ===== */
+.blur {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(20, 20, 30, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 28px 22px;
+  border-radius: 24px;
+}
+
+/* ===== SEARCH ===== */
 .weather-search {
   display: flex;
-  flex-direction: row;
-  gap: 15px;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .weather-search-input {
-  border-radius: 15px;
-  padding: 10px;
+  flex: 1;
+  border-radius: 14px;
+  padding: 12px 14px;
   border: none;
-  box-shadow: inset 5px 0 15px -10px #000, inset -5px 0 15px -10px #000;
-  outline: transparent;
-  color: rgb(255, 253, 224);
+  outline: none;
+  color: #fff;
   text-align: center;
-  background-image: linear-gradient(
-    to right,
-    #ff6e7f 0%,
-    #bfe9ff 100%,
-    #ff6e7f 0%
-  );
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  transition: 0.25s ease;
 }
 
 .weather-search-input::placeholder {
-  color: rgb(255, 253, 224);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.weather-search-btn {
-  background-image: linear-gradient(
-    to right,
-    #ff6e7f 0%,
-    #bfe9ff 51%,
-    #ff6e7f 100%
-  );
-}
-.weather-search-btn {
-  padding: 10px 15px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: rgb(33, 29, 36);
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
-  outline: transparent;
-  border: none;
-  font-size: 12px;
+.weather-search-input:focus {
+  background: rgba(255, 255, 255, 0.22);
+  transform: scale(1.02);
 }
 
-.weather-search-btn:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
-
+/* ===== TOP INFO ===== */
 .weather-info-top {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .weather-title {
+  margin: 5px 0 20px;
+  font-weight: 500;
+  font-size: 28px;
   text-align: center;
-  margin-bottom: 30px;
-  font-weight: normal;
-  font-size: 26px;
+  letter-spacing: 0.5px;
 }
 
 .weather-temp {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-  margin: 0 0 15px 0;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 10px;
 }
 
-.weather-temp span { 
-  font-size: 30px;
+.weather-temp span {
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .weather-img {
-  width: 80px;
-  margin: 0 auto 15px;
+  width: 90px;
+  margin: 5px auto 10px;
 }
 
 .weather-desc {
   text-align: center;
   font-style: italic;
-  margin: 0 0 30px 0;
+  margin: 0 0 25px;
+  opacity: 0.9;
+  text-transform: capitalize;
 }
 
+/* ===== BOTTOM INFO ===== */
 .weather-info-bottom {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+}
+
+.weather-wind,
+.weather-humidity {
+  text-align: center;
+  flex: 1;
+}
+
+/* ========================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================= */
+@media (max-width: 480px) {
+  .weather-app {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .blur {
+    padding: 22px 16px;
+  }
+
+  .weather-search {
+    flex-direction: column;
+  }
+
+  .weather-search-btn {
+    width: 100%;
+  }
+
+  .weather-temp {
+    font-size: 42px;
+  }
+
+  .weather-title {
+    font-size: 24px;
+  }
+
+  .weather-info-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ========================= */
+/* 💻 LARGE SCREENS */
+/* ========================= */
+@media (min-width: 768px) {
+  .weather-app:hover {
+    transform: translateY(-6px);
+    transition: transform 0.3s ease;
+  }
+}
+
+.weather-search-btn {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: white;
+
+  /* modern glass background */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* gradient border trick */
+  position: relative;
+  isolation: isolate;
+
+  transition: all 0.25s ease;
+}
+
+/* gradient border */
+.weather-search-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* hover — výrazná změna */
+.weather-search-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #ff6e7f, #bfe9ff);
+  color: #1a1a1a;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* klik efekt */
+.weather-search-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+/* focus accessibility */
+.weather-search-btn:focus-visible {
+  outline: 2px solid #bfe9ff;
+  outline-offset: 3px;
+}
+
+/* 📱 mobil */
+@media (max-width: 480px) {
+  .weather-search-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+  }
 }
